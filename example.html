@@ -1,0 +1,170 @@
+<head>
+  <meta charset="utf-8" />
+  <!-- Mobile Styling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="bootstrap.css">
+
+  <script src="example.js"></script>
+  <title>Example Elements</title>
+
+  <style>
+    body {
+      padding: 0;
+    }
+
+    .mod-container {
+      height:600px;
+      width: 600px;
+
+    }
+  </style>
+</head>
+
+<body ng-app="app" ng-controller="Controller as ctr" ng-cloak>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Yext</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link " ng-repeat="item in ctr.navBarItems" ng-class="{'active': item == ctr.selectedNavItem}" href="">{{ item }}</a>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand navbar-dark bg-dark" style="padding: 0.1rem 1rem">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " ng-repeat="item in ctr.subNavItems" ng-class="{'active': item == ctr.selectedSubNavItem}" href="">{{ item }}</a>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- SIDEBAR -->
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar pt-3">
+        <div class="sidebar-sticky">
+          <div class="nav flex-column">
+            <div class="nav-item nav-link" ng-repeat="filter in ctr.filters" ng-class="{'active': filter == ctr.selctedFilter}" href="#"><i class="fa fa-{{filter.icon}} mr-2"></i>{{ filter.text }}</div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Body -->
+      <div class="col-md-10 pt-3">
+        <h1>Module Selection</h1>
+
+        <div class="row mt-3">
+          <div class="col">
+            <div class = "container mod-container border">
+              <h2>Testing</h2>
+            </div>
+            
+          </div>
+        </div>
+
+
+
+        <div class="row mt-3">
+          <div class="col">
+            <h3>Show or Hide Elements</h3>
+            <p>Here is how you can toggle stuff on an off. This is implemented via AngularJS</p>
+            <button class="btn btn-primary" ng-show="!ctr.showButton" ng-click="ctr.updateShowButton(true)">Show Second Button</button>
+            <button class="btn btn-primary" ng-show="ctr.showButton" ng-click="ctr.updateShowButton(false)">Hide Second Button</button>
+            <button class="btn btn-outline-secondary" ng-show="ctr.showButton">Second Button!</button>
+          </div>
+        </div>
+        
+        <div class="row mt-4">
+          <div class="col">
+            <h3>Array of Data</h3>
+            <p>Here is how you can show an array of data. This is implemented via AngularJS</p>
+            <button class="btn btn-secondary mr-2" ng-click="ctr.addItem()">Add Item</button>
+            <button class="btn btn-secondary" ng-click="ctr.removeItem()">Remove Item</button>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col" ng-repeat="item in ctr.items">
+            <div class="card mb-4 box-shadow">
+              <div class="card-body">
+                <h4 class="card-text"><a href="">{{ item.title }}</a></h4>
+                <p class="card-text">{{ item.subtitle }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col">
+            <!-- Button trigger modal -->
+            <h3>Modal</h3>
+            <p>Here is a example of a modal. This is handled via bootstrap JS (but could be updated to be done via AngularJS)</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TABBED NAV BAR -->
+        <div class="row mt-4">
+          <div class="col">
+            <h3>Tabbed Nav Bar</h3>
+            <p>Here is a example of a tabbed navbar. This is handled via bootstrap JS (but could be updated to be done via AngularJS)</p>
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">Tab 1</div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">Tab 2</div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Tab 3</div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function() {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+</body>

@@ -1,0 +1,16 @@
+$icon-size: 40px !default;
+
+.icon-btn {
+  width: $icon-size;
+  height: $icon-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $icon-size*0.5;
+  cursor: pointer;
+  color: gray("900");
+
+  &:hover {
+    background-color: gray("300");
+  }
+}
