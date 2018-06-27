@@ -1,5 +1,7 @@
-# Basic Prototype Template
-This template will help you get started prototyping with bootstrap. It includes [bootstrap 4.0](https://getbootstrap.com/), [angularjs](https://angularjs.org/), 2 google fonts and [font awesome](https://fontawesome.com/icons).
+# Module Selection
+This prototype was built with with bootstrap. It includes [bootstrap 4.0](https://getbootstrap.com/), [angularjs](https://angularjs.org/), 2 google fonts and [font awesome](https://fontawesome.com/icons).
+
+> Here is some info on development:
 
 ## Getting Started
 Download this folder and start editing [index.html](index.html).
